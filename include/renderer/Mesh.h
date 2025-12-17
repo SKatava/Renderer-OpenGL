@@ -12,15 +12,15 @@
 class Mesh {
     public:
         Mesh();
-        void Draw(const Shader_program& program);
         void Init_vertices(const std::vector<Vertex>& vertices, GLenum draw_usage);
         void Update_vertices(const std::vector<Vertex>& vertices);
+        void Bind() const;
+        const unsigned& Get_vertices_count();
         void Delete();
     private:
         VAO m_VAO;
         VBO m_VBO;
-        std::vector<Vertex> m_vertices;
-        std::vector<GLuint> m_indices;
+        unsigned m_vertex_count = 0;
 };
 
 #endif

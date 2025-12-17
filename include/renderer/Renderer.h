@@ -4,9 +4,8 @@
 #include <glad/glad.h>
 #include <vector>
 
+#include <renderer/Render_object.h>
 #include <renderer/Shader_program.h>
-#include <renderer/Mesh.h>
-
 
 class Renderer {
     public:
@@ -15,8 +14,8 @@ class Renderer {
         void Render();
         void Clear();
     private:
-        Mesh m_mesh;
         Shader_program m_program;
+        Render_object obj;
 };
 
 #endif

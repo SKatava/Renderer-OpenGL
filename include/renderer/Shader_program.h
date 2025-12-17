@@ -2,6 +2,7 @@
 #define SHADERPROGRAM_CLASS_H
 
 #include <glad/glad.h>
+#include <glm/vec3.hpp>
 #include <vector>
 
 #include <renderer/Shader.h>
@@ -17,6 +18,7 @@ class Shader_program {
         void Deactivate() const;
         void Delete();
         void Compile_errors();
+        void Set_vec3(const std::string& name, const glm::vec3& value) const;
     private:
         GLuint m_ID;
 };

@@ -1,7 +1,9 @@
 #include <renderer/Shader_program.h>
 
+//Default constructor
 Shader_program::Shader_program() {}
 
+//Construct an actual shader program with given files and shader types, the file and type should share same index in vector
 Shader_program::Shader_program(const std::vector<std::string>& files, const std::vector<Shader_type>& types) {
     m_ID = glCreateProgram();
     
@@ -25,18 +27,27 @@ Shader_program::Shader_program(const std::vector<std::string>& files, const std:
     Logger::Log("SHADER_PROGRAM: Shader program created successfuly");
 }
 
+//Activates the program
 void Shader_program::Activate() const {
     glUseProgram(m_ID);
 }
 
+//Deactivates the program
 void Shader_program::Deactivate() const {
     glUseProgram(0);
 }
 
+void Shader_program::Set_vec3(const std::string& name, const glm::vec3& value) const {
+    GLint loc = glGetUniformLocation(m_ID, name.c_str());
+    glUniform3f(loc, value.r, value.g, value.b);
+}
+
+//Deletes the program
 void Shader_program::Delete() {
     glDeleteProgram(m_ID);
 }
 
+//Checks for errors when linking shaders
 void Shader_program::Compile_errors() {
     GLint hasCompiled;
     char infoLog[1024];

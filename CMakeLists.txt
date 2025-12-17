@@ -16,6 +16,7 @@ add_library(renderer
     src/renderer/Logger.cpp
     src/renderer/Renderer.cpp
     src/renderer/Mesh.cpp
+    src/renderer/Material.cpp
 )
 
 target_include_directories(renderer

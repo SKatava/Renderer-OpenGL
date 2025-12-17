@@ -9,8 +9,8 @@
 class VAO {
     public:
         VAO();
-        void Bind();
-        void Unbind();
+        void Bind() const;
+        void Unbind() const;
         void Link_VBO(VBO &VBO, GLuint layout, GLint size, GLenum type, size_t space, size_t offset);
         void Delete();
     private:

@@ -7,7 +7,7 @@
 class EBO {
     public:
         EBO();
-        void Set_indicies(GLuint* indices, size_t size, GLenum draw_usage);
+        void Set_indices(GLuint* indices, size_t size, GLenum draw_usage);
         void Bind();
         void Unbind();
         void Delete();
