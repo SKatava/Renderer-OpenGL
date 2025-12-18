@@ -1,3 +1,4 @@
+#include <stb/stb_image.h>
 #include <renderer/Renderer.h>
 
 //Constructor - doesn't do anything

@@ -7,8 +7,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_library(glad STATIC external/glad/src/glad.c)
 target_include_directories(glad PUBLIC external/glad/include)
 
+#Stb
+add_library(stb STATIC external/stb/src/stb_image.cpp)
+target_include_directories(stb PUBLIC external/stb/include)
+
 #library 
-add_library(renderer
+add_library(renderer STATIC
     src/renderer/VAO.cpp
     src/renderer/VBO.cpp
     src/renderer/Shader_program.cpp
@@ -17,6 +21,7 @@ add_library(renderer
     src/renderer/Renderer.cpp
     src/renderer/Mesh.cpp
     src/renderer/Material.cpp
+    src/renderer/Scene.cpp
 )
 
 target_include_directories(renderer
@@ -28,6 +33,9 @@ target_include_directories(renderer
 
 #link glad
 target_link_libraries(renderer PUBLIC glad)
+
+#link stb
+target_link_libraries(renderer PUBLIC stb)
 
 #link OpenGL
 find_package(OpenGL REQUIRED)
