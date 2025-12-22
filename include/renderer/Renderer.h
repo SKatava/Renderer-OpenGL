@@ -12,7 +12,7 @@ class Renderer {
         Renderer();
         void Init();
         void Render();
-        void Clear();
+        void Shutdown();
     private:
         Shader_program m_program;
         Render_object obj;

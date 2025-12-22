@@ -4,6 +4,7 @@
 #include <glm/vec3.hpp>
 
 #include <renderer/Shader_program.h>
+#include <renderer/Texture.h>
 
 class Material {
     public:
@@ -14,9 +15,8 @@ class Material {
         void Delete() const;
     private:
         Shader_program* m_program;
+        Texture* texture;
         glm::vec3 m_color;
-        //Fali texture
-
 };
 
 #endif

@@ -1,4 +1,3 @@
-#include <stb/stb_image.h>
 #include <renderer/Renderer.h>
 
 //Constructor - doesn't do anything
@@ -21,8 +20,10 @@ Renderer::Renderer() : m_program() {
     v9.position = {0.f, 1.f, 1.f};
 
     std::vector<Vertex> vertices = {v1, v2, v3, v4, v5, v6, v7, v8, v9};
+
     obj.mesh = new Mesh();
     obj.material = new Material;
+    
     obj.mesh->Init_vertices(vertices, GL_STATIC_DRAW);
     obj.material->Set_program(&m_program);
     obj.material->Set_color({0.2f, 0.5f, 0.8f});
@@ -42,4 +43,12 @@ void Renderer::Render() {
     obj.mesh->Bind();
     glDrawArrays(obj.draw_type, 0, obj.mesh->Get_vertices_count());
 
+}
+
+void Renderer::Shutdown() {
+    obj.material->Delete();
+    obj.mesh->Delete();
+
+    delete obj.mesh;
+    delete obj.material;
 }

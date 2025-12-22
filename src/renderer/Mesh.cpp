@@ -17,12 +17,12 @@ void Mesh::Init_vertices(const std::vector<Vertex>& vertices, GLenum draw_usage)
     m_VBO.Init_data(vertices, draw_usage);
 }
 
-//Updates all vertices(unless it is give less than it originaly has)
+//Updates all vertices(unless it is given less than it originaly has)
 void Mesh::Update_vertices(const std::vector<Vertex>& vertices) {
     m_VBO.Update_data(vertices, vertices.size(), 0);
 }
 
-//Bind mesh for use
+//Bind mesh for usage
 void Mesh::Bind() const {
     m_VAO.Bind();
 }

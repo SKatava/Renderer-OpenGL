@@ -27,6 +27,11 @@ Shader_program::Shader_program(const std::vector<std::string>& files, const std:
     Logger::Log("SHADER_PROGRAM: Shader program created successfuly");
 }
 
+//Get the shader program(ID)
+const GLuint& Shader_program::Get_ID() const {
+    return m_ID;
+}
+
 //Activates the program
 void Shader_program::Activate() const {
     glUseProgram(m_ID);
@@ -43,12 +48,12 @@ void Shader_program::Set_vec3(const std::string& name, const glm::vec3& value) c
 }
 
 //Deletes the program
-void Shader_program::Delete() {
+void Shader_program::Delete() const {
     glDeleteProgram(m_ID);
 }
 
 //Checks for errors when linking shaders
-void Shader_program::Compile_errors() {
+void Shader_program::Compile_errors() const {
     GLint hasCompiled;
     char infoLog[1024];
     glGetProgramiv(m_ID, GL_LINK_STATUS, &hasCompiled);

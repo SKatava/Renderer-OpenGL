@@ -14,10 +14,11 @@ class Shader_program {
     public:
         Shader_program();
         Shader_program(const std::vector<std::string>& files, const std::vector<Shader_type>& types);
+        const GLuint& Get_ID() const;
         void Activate() const;
         void Deactivate() const;
-        void Delete();
-        void Compile_errors();
+        void Delete() const;
+        void Compile_errors() const;
         void Set_vec3(const std::string& name, const glm::vec3& value) const;
     private:
         GLuint m_ID;
