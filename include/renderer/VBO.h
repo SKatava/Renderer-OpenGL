@@ -3,11 +3,13 @@
 
 #include <glad/glad.h>
 #include <glm/vec3.hpp>
+#include <glm/vec2.hpp>
 #include <vector>
 #include <cstddef>
 
 struct Vertex {
     glm::vec3 position;
+    glm::vec2 texture_pos;
     //glm::vec3 color;
 };
 

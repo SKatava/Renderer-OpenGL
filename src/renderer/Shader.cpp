@@ -81,6 +81,7 @@ void Shader::Compile_errors() {
         glGetShaderInfoLog(m_ID, 1024, NULL, infoLog);
         std::string msg = "SHADER: Compiling failed, info: ";
         msg.append(infoLog);
+        std::cout << msg << "\n";
         throw(msg);
     }
 }

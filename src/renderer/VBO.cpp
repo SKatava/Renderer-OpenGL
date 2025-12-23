@@ -1,7 +1,7 @@
 #include <renderer/VBO.h>
 
 
-//Generate the VBOvbo
+//Generate the VBO
 VBO::VBO() {
     glGenBuffers(1, &m_ID);
 }

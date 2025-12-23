@@ -22,6 +22,7 @@ add_library(renderer STATIC
     src/renderer/Mesh.cpp
     src/renderer/Material.cpp
     src/renderer/Scene.cpp
+    src/renderer/Texture.cpp
 )
 
 target_include_directories(renderer

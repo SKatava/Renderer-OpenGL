@@ -1,5 +1,7 @@
 #include <renderer/Texture.h>
 
+Texture::Texture() {}
+
 //Generate the texture and set the default parameters
 Texture::Texture(const char* image, GLenum texture_type, GLenum slot, GLenum format, GLenum pixel_type) {
     m_type = texture_type;
@@ -31,7 +33,7 @@ Texture::Texture(const char* image, GLenum texture_type, GLenum slot, GLenum for
     glBindTexture(m_type, 0);
 }
 
-//Not sure
+//Pass the texture to the shader program(as uniform)
 void Texture::Texture_unit(Shader_program& program, const char* uniform, GLuint unit) {
 	GLuint texture_uniform = glGetUniformLocation(program.Get_ID(), uniform);
     program.Activate();
@@ -39,16 +41,16 @@ void Texture::Texture_unit(Shader_program& program, const char* uniform, GLuint 
 }
 
 //Bind the texture
-void Texture::Bind() {
+void Texture::Bind() const {
     glBindTexture(m_type, m_ID);
 }
 
 //Unbind the texture
-void Texture::Unbind() {
+void Texture::Unbind() const {
     glBindTexture(m_type, 0);
 }
 
 //Delete the texture
-void Texture::Delete() {
+void Texture::Delete() const {
     glDeleteTextures(1, &m_ID);
 }

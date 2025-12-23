@@ -6,20 +6,22 @@ Renderer::Renderer() : m_program() {
     std::vector<Shader_type> types = {Shader_type::VERTEX, Shader_type::FRAGMENT};
     m_program = Shader_program(files, types);
 
-    Vertex v1, v2, v3, v4, v5, v6, v7, v8, v9;
+    Vertex v1, v2, v3, v4, v5, v6;
     v1.position = {-0.5f, -0.5f, 1.f};
+    v1.texture_pos = {0.f, 0.f};
     v2.position = {0.5f, -0.5f, 1.f};
+    v2.texture_pos = {1.f, 0.f};
     v3.position = {-0.5f, 0.5f, 1.f};
+    v3.texture_pos = {0.f, 1.f};
 
     v4.position = {-0.5f, 0.5f, 1.f};
+    v4.texture_pos = {0.f, 1.f};
     v5.position = {0.5f, -0.5f, 1.f};
+    v5.texture_pos = {1.f, 0.f};
     v6.position = {0.5f, 0.5f, 1.f};
+    v6.texture_pos = {1.f, 1.f};
 
-    v7.position = {-0.5f, 0.5f, 1.f};
-    v8.position = {0.5f, 0.5f, 1.f};
-    v9.position = {0.f, 1.f, 1.f};
-
-    std::vector<Vertex> vertices = {v1, v2, v3, v4, v5, v6, v7, v8, v9};
+    std::vector<Vertex> vertices = {v1, v2, v3, v4, v5, v6};
 
     obj.mesh = new Mesh();
     obj.material = new Material;
@@ -27,6 +29,8 @@ Renderer::Renderer() : m_program() {
     obj.mesh->Init_vertices(vertices, GL_STATIC_DRAW);
     obj.material->Set_program(&m_program);
     obj.material->Set_color({0.2f, 0.5f, 0.8f});
+    Texture texture("../assets/textures/white-granite.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    obj.material->Set_Texture(texture);
     obj.draw_type = GL_TRIANGLES;
 }
 
