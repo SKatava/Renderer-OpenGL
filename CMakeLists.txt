@@ -23,6 +23,7 @@ add_library(renderer STATIC
     src/renderer/Material.cpp
     src/renderer/Scene.cpp
     src/renderer/Texture.cpp
+    src/renderer/Camera.cpp
 )
 
 target_include_directories(renderer

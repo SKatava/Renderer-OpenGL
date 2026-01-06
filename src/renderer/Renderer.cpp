@@ -20,11 +20,10 @@ Renderer::Renderer() : m_program() {
     v5.texture_pos = {1.f, 0.f};
     v6.position = {0.5f, 0.5f, 1.f};
     v6.texture_pos = {1.f, 1.f};
-
     std::vector<Vertex> vertices = {v1, v2, v3, v4, v5, v6};
 
     obj.mesh = new Mesh();
-    obj.material = new Material;
+    obj.material = new Material();
     
     obj.mesh->Init_vertices(vertices, GL_STATIC_DRAW);
     obj.material->Set_program(&m_program);
@@ -49,6 +48,7 @@ void Renderer::Render() {
 
 }
 
+//Stop the renderer and delete the garbage
 void Renderer::Shutdown() {
     obj.material->Delete();
     obj.mesh->Delete();
