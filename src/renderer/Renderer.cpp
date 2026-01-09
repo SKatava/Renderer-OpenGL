@@ -32,7 +32,6 @@ Renderer::Renderer() : m_program() {
 
     obj.mesh = new Mesh();
     obj.material = new Material();
-    
     obj.mesh->Init_vertices(vertices, GL_STATIC_DRAW);
     obj.mesh->Init_indices(indices, 18, GL_STATIC_DRAW);
     obj.material->Set_program(&m_program);
@@ -56,7 +55,8 @@ void Renderer::Render() {
     obj.material->Bind();
     cam.Matrix(45.0f, 0.1f, 100.0f, m_program, "camMatrix");
     obj.mesh->Bind();
-    glDrawArrays(obj.draw_type, 0, obj.mesh->Get_vertices_count());
+    //glDrawArrays(obj.draw_type, 0, obj.mesh->Get_vertices_count());
+    glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 
 }
 

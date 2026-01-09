@@ -3,12 +3,14 @@
 //Mesh constructor - Binds VBO to VAO
 Mesh::Mesh() {
     m_VAO.Bind();
+    m_EBO.Bind();
     m_VBO.Bind();
 
     m_VAO.Link_VBO(m_VBO, 0, 3, GL_FLOAT, 5, 0);
     m_VAO.Link_VBO(m_VBO, 1, 2, GL_FLOAT, 5, 3);
 
     m_VAO.Unbind();
+    m_EBO.Unbind();
     m_VBO.Unbind();
 }
 
@@ -19,7 +21,7 @@ void Mesh::Init_vertices(const std::vector<Vertex>& vertices, GLenum draw_usage)
 }
 
 //Set the indices(order in which vertices are used)
-void Mesh::Init_indices(GLuint* indices, size_t size ,GLenum draw_usage) {
+void Mesh::Init_indices(GLuint* indices, size_t size, GLenum draw_usage) {
      m_EBO.Set_indices(indices, size, draw_usage);
 }
 
@@ -41,5 +43,6 @@ const unsigned& Mesh::Get_vertices_count() {
 //Deletes the data(VBO, VAO)
 void Mesh::Delete() {
     m_VAO.Delete();
+    m_EBO.Delete();
     m_VBO.Delete();
 }
