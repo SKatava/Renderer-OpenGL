@@ -11,7 +11,7 @@ class Material {
         Material();
         void Set_program(Shader_program* program);
         void Set_color(const glm::vec3& color);
-        void Set_Texture(const Texture& texture);
+        void Set_texture(const Texture& texture);
         void Bind() const;
         void Unbind() const;
         void Delete() const;

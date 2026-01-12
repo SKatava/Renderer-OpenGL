@@ -24,7 +24,7 @@ Texture::Texture(const char* image, GLenum texture_type, GLenum slot, GLenum for
     glTexParameteri(m_type, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(m_type, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    glTexImage2D(m_type, 0, GL_RGBA, width, height, 0, format, pixel_type, bytes);
+    glTexImage2D(m_type, 0, GL_RGB, width, height, 0, format, pixel_type, bytes);
 
     glGenerateMipmap(m_type);
 

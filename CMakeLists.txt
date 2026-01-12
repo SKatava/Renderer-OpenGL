@@ -22,7 +22,6 @@ add_library(renderer STATIC
     src/renderer/Renderer.cpp
     src/renderer/Mesh.cpp
     src/renderer/Material.cpp
-    src/renderer/Scene.cpp
     src/renderer/Texture.cpp
     src/renderer/Camera.cpp
 )

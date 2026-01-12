@@ -13,7 +13,7 @@ void Material::Set_color(const glm::vec3& color) {
 }
 
 //Set the texture of the object(if texture is set it will be used instead of color)
-void Material::Set_Texture(const Texture& texture) {
+void Material::Set_texture(const Texture& texture) {
     m_texture = texture;
 }
 

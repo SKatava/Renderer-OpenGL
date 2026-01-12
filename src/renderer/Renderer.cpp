@@ -37,7 +37,7 @@ Renderer::Renderer() : m_program() {
     obj.material->Set_program(&m_program);
     obj.material->Set_color({0.2f, 0.5f, 0.8f});
     Texture texture("../assets/textures/white-granite.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-    obj.material->Set_Texture(texture);
+    obj.material->Set_texture(texture);
     obj.draw_type = GL_TRIANGLES;
 
     cam = Camera(800, 800, glm::vec3(0.0f, 0.0f, 2.0f));
@@ -45,13 +45,14 @@ Renderer::Renderer() : m_program() {
 
 // Initializes OpenGL and default 
 void Renderer::Init() {
-    glViewport(0, 0, 800, 800);       
+    glViewport(0, 0, 800, 800);      
+    glEnable(GL_DEPTH_TEST);
 }
 
 //Renders everything in queue
 void Renderer::Render() {
     glClearColor(0.f, 0.f, 0.f, 1.f); 
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     obj.material->Bind();
     cam.Matrix(45.0f, 0.1f, 100.0f, m_program, "camMatrix");
     obj.mesh->Bind();
@@ -64,7 +65,6 @@ void Renderer::Render() {
 void Renderer::Shutdown() {
     obj.material->Delete();
     obj.mesh->Delete();
-
     delete obj.mesh;
     delete obj.material;
 }
