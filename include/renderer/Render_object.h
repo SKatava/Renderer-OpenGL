@@ -3,13 +3,14 @@
 
 #include <renderer/Mesh.h>
 #include <renderer/Material.h>
+#include <renderer/Transform.h>
 
 
 
 struct Render_object {
     Mesh* mesh;
     Material* material;
-    glm::mat4 model = glm::mat4(1.0f);
+    Transform transform;
     GLenum draw_type;
 };
 

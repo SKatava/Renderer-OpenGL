@@ -51,10 +51,12 @@ void Renderer::Init() {
 
 //Renders everything in queue
 void Renderer::Render() {
+    obj.transform.Rotate(0.5f, 0, glm::vec3(1.f, 1.f, 1.f));
     glClearColor(0.f, 0.f, 0.f, 1.f); 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     obj.material->Bind();
     cam.Matrix(45.0f, 0.1f, 100.0f, m_program, "camMatrix");
+    obj.transform.Apply(m_program, "modelMatrix");
     obj.mesh->Bind();
     //glDrawArrays(obj.draw_type, 0, obj.mesh->Get_vertices_count());
     glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);

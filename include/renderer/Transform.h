@@ -9,15 +9,25 @@
 #include <glm/gtx/rotate_vector.hpp>
 #include <glm/gtx/vector_angle.hpp>
 
+#include <renderer/Shader_program.h>
+
+enum class Transformation {
+    NONE,
+    ROTATION,
+    SCALING,
+    TRANSLATION
+};
+
 class Transform {
     public:
         Transform();
-        void Rotate(float degrees, double duration);
+        void Rotate(float degrees, double duration, glm::vec3 direction);
         void Scale(float factor, double duration);
-        void Apply();
+        void Apply(Shader_program& program, const char* uniform);
     private:
         glm::mat4 m_model = glm::mat4(1.0f);
         double m_duration = 0.f;
+        Transformation m_transformation = Transformation::NONE;
 };
 
 #endif
