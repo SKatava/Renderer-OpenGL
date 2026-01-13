@@ -7,6 +7,8 @@ out vec2 v_tex_cords;
 
 uniform mat4 camMatrix;
 
+
+
 void main()
 {
     gl_Position = camMatrix * vec4(a_pos, 1.0);

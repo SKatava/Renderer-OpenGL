@@ -20,7 +20,7 @@ void Camera::Matrix(float FOVdeg, float nearPlane, float farPlane, Shader_progra
     glm::mat4 view = glm::mat4(1.0f);
 	glm::mat4 projection = glm::mat4(1.0f);
 
-    model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::rotate(model, glm::radians(rotation), glm::vec3(1.0f, 1.0f, 1.0f));
 	view = glm::lookAt(m_position, m_position + m_orientation, m_up);
 	projection = glm::perspective(glm::radians(FOVdeg), (float)m_width / m_height, nearPlane, farPlane);
 
