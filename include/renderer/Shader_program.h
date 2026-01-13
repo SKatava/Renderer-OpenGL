@@ -2,7 +2,10 @@
 #define SHADERPROGRAM_CLASS_H
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 #include <glm/vec3.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <vector>
 
 #include <renderer/Shader.h>
@@ -20,6 +23,7 @@ class Shader_program {
         void Delete() const;
         void Compile_errors() const;
         void Set_vec3(const std::string& name, const glm::vec3& value) const;
+        void Set_mat4(const std::string& name, const glm::mat4& value) const;
     private:
         GLuint m_ID;
 };

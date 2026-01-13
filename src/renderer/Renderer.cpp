@@ -51,7 +51,8 @@ void Renderer::Init() {
 
 //Renders everything in queue
 void Renderer::Render() {
-    obj.transform.Rotate(0.5f, 0, glm::vec3(1.f, 1.f, 1.f));
+    obj.transform.Rotate(0.5f, glm::vec3(1.f, 1.f, 1.f));
+    obj.transform.Scale(0.999f);
     glClearColor(0.f, 0.f, 0.f, 1.f); 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     obj.material->Bind();

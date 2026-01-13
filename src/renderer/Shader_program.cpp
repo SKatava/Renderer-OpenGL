@@ -47,6 +47,11 @@ void Shader_program::Set_vec3(const std::string& name, const glm::vec3& value) c
     glUniform3f(loc, value.r, value.g, value.b);
 }
 
+void Shader_program::Set_mat4(const std::string& name, const glm::mat4& value) const {
+    GLint loc = glGetUniformLocation(m_ID, name.c_str());
+    glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(value));  
+}
+
 //Deletes the program
 void Shader_program::Delete() const {
     glDeleteProgram(m_ID);

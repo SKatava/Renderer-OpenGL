@@ -21,12 +21,11 @@ enum class Transformation {
 class Transform {
     public:
         Transform();
-        void Rotate(float degrees, double duration, glm::vec3 direction);
-        void Scale(float factor, double duration);
+        void Rotate(float degrees, glm::vec3 direction);
+        void Scale(float factor);
         void Apply(Shader_program& program, const char* uniform);
     private:
         glm::mat4 m_model = glm::mat4(1.0f);
-        double m_duration = 0.f;
         Transformation m_transformation = Transformation::NONE;
 };
 
